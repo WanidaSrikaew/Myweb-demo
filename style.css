@@ -1,0 +1,321 @@
+@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400..700;1,400..700&family=Prompt:wght@200;300;400;500;600;700&family=Plus+Jakarta+Sans:wght@300;400;500;600;700&display=swap');
+
+:root {
+    /* Color Palette - Minimalist Cream & Brown */
+    --bg-main: #F9F6F0;       /* Soft warm cream base */
+    --bg-card: #FFFFFF;       /* Crisp white for card container */
+    --bg-inner: #FAF6F0;      /* Slightly darker cream for info lists */
+    --bg-hover: #F3ECE3;      /* Warm beige-cream for hover states */
+    
+    --text-primary: #3E3227;  /* Deep dark walnut/brown for headings and primary text */
+    --text-secondary: #7A6A5C;/* Soft warm cocoa for descriptions and labels */
+    --text-muted: #9E8E80;     /* Muted clay for secondary details */
+    
+    --accent: #A68A70;         /* Classic warm mid-brown */
+    --accent-light: #EBE1D5;   /* Very light cream-brown accent */
+    --border-color: #EDE7DD;   /* Smooth delicate border */
+    
+    /* Shadows & Transitions */
+    --shadow-subtle: 0 12px 40px rgba(62, 50, 39, 0.04);
+    --shadow-hover: 0 20px 50px rgba(62, 50, 39, 0.08);
+    --transition-smooth: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+    
+    /* Fonts */
+    --font-primary: 'Plus Jakarta Sans', 'Prompt', sans-serif;
+    --font-serif: 'Playfair Display', 'Prompt', serif;
+}
+
+/* Base Styles */
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    background-color: var(--bg-main);
+    color: var(--text-primary);
+    font-family: var(--font-primary);
+    line-height: 1.6;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    padding: 2.5rem 1.25rem;
+}
+
+/* Card Container */
+.profile-container {
+    max-width: 580px;
+    width: 100%;
+}
+
+.profile-card {
+    background: var(--bg-card);
+    border: 1px solid var(--border-color);
+    border-radius: 28px;
+    padding: 3.5rem 2.75rem;
+    box-shadow: var(--shadow-subtle);
+    transition: var(--transition-smooth);
+}
+
+.profile-card:hover {
+    transform: translateY(-2px);
+    box-shadow: var(--shadow-hover);
+}
+
+/* Header Section */
+.profile-header {
+    text-align: center;
+    margin-bottom: 2.75rem;
+}
+
+.profile-avatar-container {
+    position: relative;
+    width: 140px;
+    height: 140px;
+    margin: 0 auto 1.5rem;
+}
+
+.profile-avatar-wrapper {
+    width: 100%;
+    height: 100%;
+    border-radius: 50%;
+    overflow: hidden;
+    border: 3px solid var(--bg-main);
+    outline: 1px solid var(--border-color);
+    box-shadow: 0 8px 24px rgba(166, 138, 112, 0.12);
+    transition: var(--transition-smooth);
+    background-color: var(--bg-inner);
+}
+
+.profile-avatar {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: var(--transition-smooth);
+}
+
+.profile-avatar-wrapper:hover .profile-avatar {
+    transform: scale(1.06);
+}
+
+.profile-name {
+    font-family: var(--font-serif);
+    font-size: 2.1rem;
+    font-weight: 700;
+    letter-spacing: -0.01em;
+    color: var(--text-primary);
+    margin-bottom: 0.5rem;
+}
+
+.profile-subtitle {
+    font-size: 0.9rem;
+    color: var(--text-secondary);
+    font-weight: 500;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+}
+
+/* Sections Common */
+.info-section, .contact-section {
+    margin-bottom: 2.75rem;
+}
+
+.info-section:last-child, .contact-section:last-child {
+    margin-bottom: 0;
+}
+
+.section-title {
+    font-family: var(--font-serif);
+    font-size: 1.25rem;
+    font-weight: 700;
+    color: var(--text-primary);
+    margin-bottom: 1.25rem;
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+}
+
+.section-title::after {
+    content: '';
+    flex-grow: 1;
+    height: 1px;
+    background-color: var(--border-color);
+}
+
+/* Student Info List */
+.info-list {
+    background-color: var(--bg-inner);
+    border: 1px solid var(--border-color);
+    border-radius: 20px;
+    padding: 1.5rem 1.75rem;
+}
+
+.info-item {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1rem 0;
+    border-bottom: 1px dashed rgba(166, 138, 112, 0.25);
+}
+
+.info-item:last-child {
+    border-bottom: none;
+    padding-bottom: 0;
+}
+
+.info-item:first-child {
+    padding-top: 0;
+}
+
+.info-label {
+    font-weight: 600;
+    color: var(--text-secondary);
+    font-size: 0.95rem;
+    flex-shrink: 0;
+    padding-right: 1.5rem;
+}
+
+.info-value {
+    color: var(--text-primary);
+    font-weight: 500;
+    text-align: right;
+    font-size: 0.95rem;
+    word-break: break-word;
+}
+
+/* Contacts Layout */
+.contacts-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 1rem;
+}
+
+/* Contact Card Base */
+.contact-card {
+    display: flex;
+    align-items: center;
+    padding: 1rem 1.25rem;
+    border-radius: 16px;
+    border: 1px solid var(--border-color);
+    text-decoration: none;
+    color: inherit;
+    background-color: var(--bg-card);
+    transition: var(--transition-smooth);
+}
+
+.contact-icon-wrapper {
+    width: 38px;
+    height: 38px;
+    border-radius: 10px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-right: 1rem;
+    transition: var(--transition-smooth);
+    flex-shrink: 0;
+}
+
+/* Tone down icon backgrounds to match warm brown-cream aesthetic */
+.contact-icon-wrapper.fb { background-color: #F4ECE1; color: #8C6D53; }
+.contact-icon-wrapper.ig { background-color: #F5EAE1; color: #A06B5E; }
+.contact-icon-wrapper.dc { background-color: #ECEAF5; color: #6D6890; }
+.contact-icon-wrapper.tel { background-color: #EDF1EC; color: #617A55; }
+
+.contact-icon {
+    width: 20px;
+    height: 20px;
+}
+
+.contact-details {
+    display: flex;
+    flex-direction: column;
+    overflow: hidden;
+    flex-grow: 1;
+}
+
+.contact-label {
+    font-size: 0.8rem;
+    color: var(--text-secondary);
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+}
+
+.contact-value {
+    font-size: 0.9rem;
+    color: var(--text-primary);
+    font-weight: 500;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+/* Clickable Button Styles */
+.contact-card.clickable {
+    cursor: pointer;
+}
+
+.contact-action-arrow {
+    width: 16px;
+    height: 16px;
+    color: var(--text-muted);
+    opacity: 0.5;
+    transition: var(--transition-smooth);
+    margin-left: 0.5rem;
+    flex-shrink: 0;
+}
+
+.contact-card.clickable:hover {
+    background-color: var(--bg-inner);
+    border-color: var(--accent);
+    transform: translateY(-2px);
+    box-shadow: 0 6px 16px rgba(166, 138, 112, 0.06);
+}
+
+.contact-card.clickable:hover .contact-icon-wrapper {
+    transform: scale(1.05);
+}
+
+.contact-card.clickable:hover .contact-action-arrow {
+    opacity: 1;
+    color: var(--accent);
+    transform: translate(2px, -2px);
+}
+
+/* Non-Clickable Card Styles (Discord, Tel) */
+.contact-card.static {
+    cursor: default;
+    background-color: var(--bg-inner);
+    opacity: 0.95;
+}
+
+/* Responsive Layout */
+@media (max-width: 540px) {
+    body {
+        padding: 1.5rem 1rem;
+    }
+    
+    .profile-card {
+        padding: 2.5rem 1.5rem;
+    }
+    
+    .contacts-grid {
+        grid-template-columns: 1fr;
+    }
+    
+    .info-item {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 0.25rem;
+    }
+    
+    .info-label {
+        padding-right: 0;
+    }
+    
+    .info-value {
+        text-align: left;
+    }
+}
